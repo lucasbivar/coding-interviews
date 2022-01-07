@@ -106,7 +106,9 @@ print("-------------")
 
 # Complexity:
 # - Time: O(n)
-# - Space: O(1)
+# - Space: O(1) - we have not utilized any extra space, 
+# the point to note is that we are reforming the original 
+# list, by moving the original nodes, we have not used any extra space as such.
 
 def partition(head, x):
   if head == None: return None
