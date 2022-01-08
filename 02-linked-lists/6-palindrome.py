@@ -69,6 +69,39 @@ def isPalindrome(head):
     slow = slow.next
     stack.pop()
   return True
-    
-    
-  
+
+# Ex. 1
+# Input: head = [1,2,3,4,3,2,1]
+# Output: true
+L1 = LinkedListNode(1)
+L1.next = LinkedListNode(2)
+L1.next.next = LinkedListNode(3)
+L1.next.next.next = LinkedListNode(4)
+L1.next.next.next.next = LinkedListNode(3)
+L1.next.next.next.next.next = LinkedListNode(2)
+L1.next.next.next.next.next.next = LinkedListNode(1)
+printLinkedList(L1)
+print("Is palindrome? ", isPalindrome(L1))
+print("~~~~~~~~")
+
+# Ex. 2
+# Input: head = [1,2]
+# Output: false
+L1 = LinkedListNode(1)
+L1.next = LinkedListNode(2)
+
+printLinkedList(L1)
+print("Is palindrome? ", isPalindrome(L1))
+print("~~~~~~~~")
+
+# Ex. 3
+# Input: head = [1,2,2,1]
+# Output: true
+L1 = LinkedListNode(1)
+L1.next = LinkedListNode(2)
+L1.next.next = LinkedListNode(2)
+L1.next.next.next = LinkedListNode(1)
+
+printLinkedList(L1)
+print("Is palindrome? ", isPalindrome(L1))
+print("~~~~~~~~")
