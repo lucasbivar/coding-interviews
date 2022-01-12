@@ -12,6 +12,47 @@ def printLinkedList(linked_list):
     linked_list_str += "None"
     print(linked_list_str)
 
+def tests(func):
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+  # Ex. 1
+  # Input: head = [1,2,3,4,3,2,1]
+  # Output: true
+  L1 = LinkedListNode(1)
+  L1.next = LinkedListNode(2)
+  L1.next.next = LinkedListNode(3)
+  L1.next.next.next = LinkedListNode(4)
+  L1.next.next.next.next = LinkedListNode(3)
+  L1.next.next.next.next.next = LinkedListNode(2)
+  L1.next.next.next.next.next.next = LinkedListNode(1)
+  printLinkedList(L1)
+  print("Is palindrome? ", func(L1))
+  print("-------------------------------")
+
+  # Ex. 2
+  # Input: head = [1,2]
+  # Output: false
+  L1 = LinkedListNode(1)
+  L1.next = LinkedListNode(2)
+
+  printLinkedList(L1)
+  print("Is palindrome? ", func(L1))
+  print("-------------------------------")
+
+
+  # Ex. 3
+  # Input: head = [1,2,2,1]
+  # Output: true
+  L1 = LinkedListNode(1)
+  L1.next = LinkedListNode(2)
+  L1.next.next = LinkedListNode(2)
+  L1.next.next.next = LinkedListNode(1)
+
+  printLinkedList(L1)
+  print("Is palindrome? ", func(L1))
+
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
 # Clarify Questions
 # - Could the linked list have an odd or even length? Yes!
 # - Have I some limit memory? Is it necessary solve with constant space complexity?
@@ -70,38 +111,5 @@ def isPalindrome(head):
     stack.pop()
   return True
 
-# Ex. 1
-# Input: head = [1,2,3,4,3,2,1]
-# Output: true
-L1 = LinkedListNode(1)
-L1.next = LinkedListNode(2)
-L1.next.next = LinkedListNode(3)
-L1.next.next.next = LinkedListNode(4)
-L1.next.next.next.next = LinkedListNode(3)
-L1.next.next.next.next.next = LinkedListNode(2)
-L1.next.next.next.next.next.next = LinkedListNode(1)
-printLinkedList(L1)
-print("Is palindrome? ", isPalindrome(L1))
-print("~~~~~~~~")
 
-# Ex. 2
-# Input: head = [1,2]
-# Output: false
-L1 = LinkedListNode(1)
-L1.next = LinkedListNode(2)
-
-printLinkedList(L1)
-print("Is palindrome? ", isPalindrome(L1))
-print("~~~~~~~~")
-
-# Ex. 3
-# Input: head = [1,2,2,1]
-# Output: true
-L1 = LinkedListNode(1)
-L1.next = LinkedListNode(2)
-L1.next.next = LinkedListNode(2)
-L1.next.next.next = LinkedListNode(1)
-
-printLinkedList(L1)
-print("Is palindrome? ", isPalindrome(L1))
-print("~~~~~~~~")
+tests(isPalindrome)

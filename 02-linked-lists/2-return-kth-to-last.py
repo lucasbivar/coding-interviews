@@ -12,6 +12,49 @@ def printLinkedList(linked_list):
     linked_list_str += "None"
     print(linked_list_str)
 
+def tests(func):
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  
+  #Ex. 1: list 1->2->3->4->None, K = 1 | return 4
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(2)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(4)
+
+  printLinkedList(LList)
+  print("Kth To Last:", func(LList, 1))
+  print("-------------------------------")
+
+  #Ex. 2: list 1->2->3->4->None, K = 2 | return 3
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(2)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(4)
+
+  printLinkedList(LList)
+  print("Kth To Last:", func(LList, 2))
+  print("-------------------------------")
+
+  #Ex. 3: list 1->2->3->4->None, K = 3 | return 2
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(2)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(4)
+
+  printLinkedList(LList)
+  print("Kth To Last:", func(LList, 3))
+  print("-------------------------------")
+
+  #Ex. 3: list 1->2->3->4->None, K = 5 | return None
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(2)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(4)
+
+  printLinkedList(LList)
+  print("Kth To Last:", func(LList, 5))
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
 
 # Clarify questions
 # Can K be greater than linked list size? If yes, when we go to assign the 
@@ -69,7 +112,6 @@ LList.next.next.next = LinkedListNode(4)
 printLinkedList(LList)
 printKthToLast(LList, 3)
 
-print("----------------")
 
 # Approach #2
 # two pointers
@@ -105,40 +147,6 @@ def getKthToLast(head, K):
   
   return pointer1.value
 
+tests(getKthToLast)
 
-#Ex. 1: list 1->2->3->4->None, K = 1 | return 4
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(2)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(4)
-
-printLinkedList(LList)
-print("Kth To Last:", getKthToLast(LList, 1))
-
-#Ex. 2: list 1->2->3->4->None, K = 2 | return 3
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(2)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(4)
-
-printLinkedList(LList)
-print("Kth To Last:", getKthToLast(LList, 2))
-
-#Ex. 3: list 1->2->3->4->None, K = 3 | return 2
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(2)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(4)
-
-printLinkedList(LList)
-print("Kth To Last:", getKthToLast(LList, 3))
-
-#Ex. 3: list 1->2->3->4->None, K = 5 | return None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(2)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(4)
-
-printLinkedList(LList)
-print("Kth To Last:", getKthToLast(LList, 5))
 

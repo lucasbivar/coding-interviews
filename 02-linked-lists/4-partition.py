@@ -12,6 +12,45 @@ def printLinkedList(linked_list):
     linked_list_str += "None"
     print(linked_list_str)
 
+def tests(func):
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  #Ex. 1: list 1->4->3->5->2->None, X = 2 | return 1->4->3->5->2->None
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(4)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(5)
+  LList.next.next.next.next = LinkedListNode(2)
+
+  printLinkedList(LList)
+  print("X = 1", end=" |")
+  printLinkedList(func(LList, 1))
+  print("-------------------------------")
+
+  #Ex. 2: list 1->4->3->5->2->None, X = 4 | return 1->3->2->4->5->None
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(4)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(5)
+  LList.next.next.next.next = LinkedListNode(2)
+
+  printLinkedList(LList)
+  print("X = 4", end=" |")
+  printLinkedList(func(LList, 4))
+  print("-------------------------------")
+
+  #Ex. 3: list 1->4->3->5->2->None, X = 5 | return 1->4->3->2->5->None
+  LList = LinkedListNode(1)
+  LList.next = LinkedListNode(4)
+  LList.next.next = LinkedListNode(3)
+  LList.next.next.next = LinkedListNode(5)
+  LList.next.next.next.next = LinkedListNode(2)
+
+  printLinkedList(LList)
+  print("X = 5", end=" |")
+  printLinkedList(func(LList, 5))
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 # Clarify questions:
 # - Are all numbers positive? No, the number can be both
 # - Could the list be empty? Yes
@@ -57,39 +96,7 @@ def partition(head, x):
   
   return dummyHead.next
 
-#Ex. 1: list 1->4->3->5->2->None, X = 2 | return 1->4->3->5->2->None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(4)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(5)
-LList.next.next.next.next = LinkedListNode(2)
-
-printLinkedList(LList)
-print("X = 1", end=" |")
-printLinkedList(partition(LList, 1))
-
-#Ex. 2: list 1->4->3->5->2->None, X = 4 | return 1->3->2->4->5->None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(4)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(5)
-LList.next.next.next.next = LinkedListNode(2)
-
-printLinkedList(LList)
-print("X = 4", end=" |")
-printLinkedList(partition(LList, 4))
-
-#Ex. 3: list 1->4->3->5->2->None, X = 5 | return 1->4->3->2->5->None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(4)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(5)
-LList.next.next.next.next = LinkedListNode(2)
-
-printLinkedList(LList)
-print("X = 5", end=" |")
-printLinkedList(partition(LList, 5))
-print("-------------")
+tests(partition)
 
 # Approach #2
 # 1. Create two linked lists
@@ -129,39 +136,7 @@ def partition(head, x):
   
   less.next = greaterOrEqualBegin.next
   greaterOrEqual.next = None
-
+  
   return lessBegin.next
 
-#Ex. 1: list 1->4->3->5->2->None, X = 2 | return 1->4->3->5->2->None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(4)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(5)
-LList.next.next.next.next = LinkedListNode(2)
-
-printLinkedList(LList)
-print("X = 1", end=" |")
-printLinkedList(partition(LList, 1))
-
-#Ex. 2: list 1->4->3->5->2->None, X = 4 | return 1->3->2->4->5->None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(4)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(5)
-LList.next.next.next.next = LinkedListNode(2)
-
-printLinkedList(LList)
-print("X = 4", end=" |")
-printLinkedList(partition(LList, 4))
-
-#Ex. 3: list 1->4->3->5->2->None, X = 5 | return 1->4->3->2->5->None
-LList = LinkedListNode(1)
-LList.next = LinkedListNode(4)
-LList.next.next = LinkedListNode(3)
-LList.next.next.next = LinkedListNode(5)
-LList.next.next.next.next = LinkedListNode(2)
-
-printLinkedList(LList)
-print("X = 5", end=" |")
-printLinkedList(partition(LList, 5))
-print("-------------")
+tests(partition)

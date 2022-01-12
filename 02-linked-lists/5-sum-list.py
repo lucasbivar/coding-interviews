@@ -12,6 +12,63 @@ def printLinkedList(linked_list):
     linked_list_str += "None"
     print(linked_list_str)
 
+def tests(func):
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+  # Ex. 1
+  # Input: l1 = [2,4,3], l2 = [5,6,4]
+  # Output: [7,0,8]
+  L1 = LinkedListNode(2)
+  L1.next = LinkedListNode(4)
+  L1.next.next = LinkedListNode(3)
+  L2 = LinkedListNode(5)
+  L2.next = LinkedListNode(6)
+  L2.next.next = LinkedListNode(4)
+
+  printLinkedList(L1)
+  print("+")
+  printLinkedList(L2)
+  print("=")
+  printLinkedList(func(L1, L2))
+  print("-------------------------------")
+
+
+  # Ex. 2
+  # Input: l1 = [0], l2 = [0]
+  # Output: [0]
+  L1 = LinkedListNode(0)
+  L2 = LinkedListNode(0)
+  printLinkedList(L1)
+  print("+")
+  printLinkedList(L2)
+  print("=")
+  printLinkedList(func(L1, L2))
+  print("-------------------------------")
+
+  # Ex. 3
+  # Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+  # Output: [8,9,9,9,0,0,0,1]
+  L1 = LinkedListNode(9)
+  L1.next = LinkedListNode(9)
+  L1.next.next = LinkedListNode(9)
+  L1.next.next.next = LinkedListNode(9)
+  L1.next.next.next.next = LinkedListNode(9)
+  L1.next.next.next.next.next = LinkedListNode(9)
+  L1.next.next.next.next.next.next = LinkedListNode(9)
+  L2 = LinkedListNode(9)
+  L2.next = LinkedListNode(9)
+  L2.next.next = LinkedListNode(9)
+  L2.next.next.next = LinkedListNode(9)
+
+
+  printLinkedList(L1)
+  print("+")
+  printLinkedList(L2)
+  print("=")
+  printLinkedList(func(L1, L2))
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
+
 # Clarify Questions
 # - Could the number be negative?
 # - Are both numbers the same length?
@@ -48,60 +105,8 @@ def addTwoNumbers(l1, l2):
   
   return dummyHead.next
 
+tests(addTwoNumbers)
 
-# Ex. 1
-# Input: l1 = [2,4,3], l2 = [5,6,4]
-# Output: [7,0,8]
-L1 = LinkedListNode(2)
-L1.next = LinkedListNode(4)
-L1.next.next = LinkedListNode(3)
-L2 = LinkedListNode(5)
-L2.next = LinkedListNode(6)
-L2.next.next = LinkedListNode(4)
-
-printLinkedList(L1)
-print("+")
-printLinkedList(L2)
-print("=")
-printLinkedList(addTwoNumbers(L1, L2))
-print("~~~~~~~~~~~~~~~~")
-
-# Ex. 2
-# Input: l1 = [0], l2 = [0]
-# Output: [0]
-L1 = LinkedListNode(0)
-L2 = LinkedListNode(0)
-printLinkedList(L1)
-print("+")
-printLinkedList(L2)
-print("=")
-printLinkedList(addTwoNumbers(L1, L2))
-print("~~~~~~~~~~~~~~~~")
-
-# Ex. 3
-# Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-# Output: [8,9,9,9,0,0,0,1]
-L1 = LinkedListNode(9)
-L1.next = LinkedListNode(9)
-L1.next.next = LinkedListNode(9)
-L1.next.next.next = LinkedListNode(9)
-L1.next.next.next.next = LinkedListNode(9)
-L1.next.next.next.next.next = LinkedListNode(9)
-L1.next.next.next.next.next.next = LinkedListNode(9)
-L2 = LinkedListNode(9)
-L2.next = LinkedListNode(9)
-L2.next.next = LinkedListNode(9)
-L2.next.next.next = LinkedListNode(9)
-
-
-printLinkedList(L1)
-print("+")
-printLinkedList(L2)
-print("=")
-printLinkedList(addTwoNumbers(L1, L2))
-print("~~~~~~~~~~~~~~~~")
-
-print("--------------------------------------")
 # Approach #2
 # - Time: O(max(m, n)) -> m and represents the length of l1 and l2
 # - Space: O(1) 
@@ -152,54 +157,4 @@ def addTwoNumbers(l1, l2):
     addRemaingDigits(currentL1, carry)
     return l1 
 
-# Ex. 1
-# Input: l1 = [2,4,3], l2 = [5,6,4]
-# Output: [7,0,8]
-L1 = LinkedListNode(2)
-L1.next = LinkedListNode(4)
-L1.next.next = LinkedListNode(3)
-L2 = LinkedListNode(5)
-L2.next = LinkedListNode(6)
-L2.next.next = LinkedListNode(4)
-
-printLinkedList(L1)
-print("+")
-printLinkedList(L2)
-print("=")
-printLinkedList(addTwoNumbers(L1, L2))
-print("~~~~~~~~~~~~~~~~")
-
-# Ex. 2
-# Input: l1 = [0], l2 = [0]
-# Output: [0]
-L1 = LinkedListNode(0)
-L2 = LinkedListNode(0)
-printLinkedList(L1)
-print("+")
-printLinkedList(L2)
-print("=")
-printLinkedList(addTwoNumbers(L1, L2))
-print("~~~~~~~~~~~~~~~~")
-
-# Ex. 3
-# Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-# Output: [8,9,9,9,0,0,0,1]
-L1 = LinkedListNode(9)
-L1.next = LinkedListNode(9)
-L1.next.next = LinkedListNode(9)
-L1.next.next.next = LinkedListNode(9)
-L1.next.next.next.next = LinkedListNode(9)
-L1.next.next.next.next.next = LinkedListNode(9)
-L1.next.next.next.next.next.next = LinkedListNode(9)
-L2 = LinkedListNode(9)
-L2.next = LinkedListNode(9)
-L2.next.next = LinkedListNode(9)
-L2.next.next.next = LinkedListNode(9)
-
-
-printLinkedList(L1)
-print("+")
-printLinkedList(L2)
-print("=")
-printLinkedList(addTwoNumbers(L1, L2))
-print("~~~~~~~~~~~~~~~~")
+tests(addTwoNumbers)

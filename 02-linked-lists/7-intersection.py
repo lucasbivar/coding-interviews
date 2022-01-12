@@ -11,6 +11,64 @@ def printLinkedList(linked_list):
    
     linked_list_str += "None"
     print(linked_list_str)
+
+def tests(func):
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  # Ex.: 1
+  # Input: listA = [4,1,8,4,5], listB = [5,6,1,8,4,5]
+  # Output: Intersected at '8'
+  L1 = LinkedListNode(4)
+  L1.next = LinkedListNode(1)
+  L1.next.next = LinkedListNode(8)
+  L1.next.next.next = LinkedListNode(4)
+  L1.next.next.next.next = LinkedListNode(5)
+
+  L2 = LinkedListNode(5)
+  L2.next = LinkedListNode(6)
+  L2.next.next = LinkedListNode(1)
+  L2.next.next.next = L1.next.next
+  L2.next.next.next.next = L1.next.next.next
+  L2.next.next.next.next.next = L1.next.next.next.next
+
+  printLinkedList(L1)
+  printLinkedList(L2)
+  print(f"Intersected at {func(L1, L2).val if func(L1, L2) else None}")
+  print("-------------------------------")
+
+  # Ex.: 2
+  # Input: listA = [1,9,1,2,4], listB = [3,2,4]
+  # Output: Intersected at '2'
+  L1 = LinkedListNode(1)
+  L1.next = LinkedListNode(9)
+  L1.next.next = LinkedListNode(1)
+  L1.next.next.next = LinkedListNode(2)
+  L1.next.next.next.next = LinkedListNode(4)
+
+  L2 = LinkedListNode(3)
+  L2.next = L1.next.next.next 
+  L2.next.next = L1.next.next.next.next
+
+  printLinkedList(L1)
+  printLinkedList(L2)
+  print(f"Intersected at {func(L1, L2).val if func(L1, L2) else None}")
+  print("-------------------------------")
+
+  # Ex.: 3
+  # listA = [2,6,4], listB = [1,5]
+  # Output: No intersection
+  L1 = LinkedListNode(2)
+  L1.next = LinkedListNode(6)
+  L1.next.next = LinkedListNode(4)
+
+  L2 = LinkedListNode(1)
+  L2.next = LinkedListNode(5)
+
+  printLinkedList(L1)
+  printLinkedList(L2)
+  print(f"Intersected at {func(L1, L2).val if func(L1, L2) else None}")
+
+  print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
   
 # Clarify questions
 # - Have I some memory limit?
@@ -27,7 +85,6 @@ def printLinkedList(linked_list):
 
 def getIntersectionNode(headA, headB):
   if not headA or not headB: return None
-  
   aReferences = set()
   pointerA = headA
   while pointerA != None:
@@ -43,6 +100,7 @@ def getIntersectionNode(headA, headB):
   
   return None
 
+tests(getIntersectionNode)
 
 # Approach #2
 # While both pointers from list A and B are different. 
@@ -63,3 +121,5 @@ def getIntersectionNode(headA, headB):
       pointerB = headA if not pointerB else pointerB.next
 
   return pointerA
+
+tests(getIntersectionNode)

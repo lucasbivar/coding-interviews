@@ -12,6 +12,30 @@ def printLinkedList(linked_list):
     linked_list_str += "None"
     print(linked_list_str)
 
+def tests(func):
+
+  # Ex. 1: "a"->"b"->"c"->"d"->none, node "c" | new list: "a"->"b"->"d"->none
+  LList = LinkedListNode("a")
+  LList.next = LinkedListNode("b")
+  LList.next.next = LinkedListNode("c")
+  LList.next.next.next = LinkedListNode("d")
+
+  printLinkedList(LList)
+  print(func(LList.next.next))
+  printLinkedList(LList)
+
+  # Ex. 2: "a"->"b"->"c"->"d"->"e"->none, node "b" | new list: "a"->"c"->"d"->"e"->none
+  LList = LinkedListNode("a")
+  LList.next = LinkedListNode("b")
+  LList.next.next = LinkedListNode("c")
+  LList.next.next.next = LinkedListNode("d")
+  LList.next.next.next.next = LinkedListNode("e")
+
+  printLinkedList(LList)
+  print(func(LList.next))
+  printLinkedList(LList)
+
+
 # Clarify Questions
 # - Should I treat if the node is equal to None or the node is the last?
 # - Could I return a boolean value based on the operation's result?
@@ -38,7 +62,7 @@ def printLinkedList(linked_list):
 # - Time: O(1) 
 # - Space: O(1)
 
-def  deleteMiddleNode(node: LinkedListNode) -> bool:
+def deleteMiddleNode(node: LinkedListNode) -> bool:
   if node == None or node.next == None: return False
 
   node.value = node.next.value
@@ -46,23 +70,4 @@ def  deleteMiddleNode(node: LinkedListNode) -> bool:
 
   return True
 
-# Ex. 1: "a"->"b"->"c"->"d"->none, node "c" | new list: "a"->"b"->"d"->none
-LList = LinkedListNode("a")
-LList.next = LinkedListNode("b")
-LList.next.next = LinkedListNode("c")
-LList.next.next.next = LinkedListNode("d")
-
-printLinkedList(LList)
-print(deleteMiddleNode(LList.next.next))
-printLinkedList(LList)
-
-# Ex. 2: "a"->"b"->"c"->"d"->"e"->none, node "b" | new list: "a"->"c"->"d"->"e"->none
-LList = LinkedListNode("a")
-LList.next = LinkedListNode("b")
-LList.next.next = LinkedListNode("c")
-LList.next.next.next = LinkedListNode("d")
-LList.next.next.next.next = LinkedListNode("e")
-
-printLinkedList(LList)
-print(deleteMiddleNode(LList.next))
-printLinkedList(LList)
+tests(deleteMiddleNode)
