@@ -4,13 +4,13 @@ class LinkedListNode:
     self.next = None
 
 def printLinkedList(linked_list):
-    linked_list_str = ""
-    while linked_list != None:
-        linked_list_str += str(linked_list.val) + "->"
-        linked_list=linked_list.next
-   
-    linked_list_str += "None"
-    print(linked_list_str)
+  linked_list_str = ""
+  while linked_list != None:
+    linked_list_str += str(linked_list.val) + "->"
+    linked_list=linked_list.next
+
+  linked_list_str += "None"
+  print(linked_list_str)
 
 def tests(func):
   print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
