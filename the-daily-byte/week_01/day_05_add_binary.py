@@ -17,7 +17,7 @@ def addBinary(number1:str, number2: str) -> str:
 
   n1Pointer = len(number1)-1
   n2Pointer = len(number2)-1
-  
+
   output = deque()
   carry = 0
 
@@ -33,14 +33,14 @@ def addBinary(number1:str, number2: str) -> str:
     elif currDigitSum == 3:
       currDigitSum = 1
 
-    output.appendleft(str(currDigitSum))
+    output.appendleft(str(currDigitSum)) # O(1)
     n1Pointer -= 1
     n2Pointer -= 1
 
   if carry:
-    output.appendleft(str(carry))
+    output.appendleft(str(carry)) # O(1)
   
-  return "".join(output)
+  return "".join(output) # O(n)
 
 
 
