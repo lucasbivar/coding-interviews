@@ -20,30 +20,26 @@ def findBiggestWord(words):
   return biggestWord
 
 def longestCommonPrefix(words):
-  # Time: O(m*n) -> m: biggest string, n: number of strings
-  # Space: O(m+n)
+  # Time: O(m*n) -> m: size of the biggest string, n: number of strings
+  # Space: O(m)
   if len(words) == 0: return ""
 
-  charsAtCurrIdx = set()
   biggestWord = findBiggestWord(words)
 
   output = []
   for i in range(len(biggestWord)):
     found = False
     for j in range(len(words)):
-      if i < len(words[j]):
-        charsAtCurrIdx.add(words[j][i])
-      else:
+      if i >= len(words[j]) or biggestWord[i] != words[j][i]:
         found = True
         break
 
-    if len(charsAtCurrIdx) != 1 or found:
+    if found:
       break
     else:
       output.append(biggestWord[i])
 
-    charsAtCurrIdx.clear()
-
+    
   return "".join(output)
 
 
