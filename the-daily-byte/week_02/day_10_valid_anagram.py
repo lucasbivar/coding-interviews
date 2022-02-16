@@ -12,8 +12,8 @@ s = "program", t = "function", return false
 
 def validAnagram(s: str, t: str) -> bool:
   # Time: O(n)
-  # Space: O(1) -> independent of the size of both strings the 
-  # hashmap's length will be in maximum of 26 (alphabet)
+  # Space: O(1) -> independent of the size of both strings
+  # the hashmap length will be in a maximum of 26 (alphabet)
   if len(s) != len(t): return False
   
   countLetters = dict()
