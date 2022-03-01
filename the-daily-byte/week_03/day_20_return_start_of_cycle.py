@@ -22,6 +22,7 @@ class ListNode:
     while currNode:
       toString += str(currNode.data)
       toString += "->"
+      currNode = currNode.next
     
     toString += "null"
 
