@@ -11,6 +11,8 @@ Ex: Given the following strings...
 """
 
 def validateCharacteres(string: str) -> bool:
+  # Time: O(n)
+  # Space: O(n)
   stack = []
   pairBrackets =  {"(": ")", "{": "}", "[":"]"}
 
