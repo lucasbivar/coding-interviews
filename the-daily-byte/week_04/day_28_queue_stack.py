@@ -13,6 +13,7 @@ class QueueStack:
   def __init__(self):
     self.queue = deque()
   
+  
   def push(self, item):
     numberOfSwaps = len(self.queue)
 
@@ -23,13 +24,23 @@ class QueueStack:
 
 
   def pop(self):
+    if self.empty(): 
+      return None
+
     return self.queue.popleft()
 
+
   def peek(self):
+    if self.empty(): 
+      return None
+
     return self.queue[0]
+
 
   def empty(self):
     return True if len(self.queue) == 0 else False
+
+
 
 stack = QueueStack()
 
