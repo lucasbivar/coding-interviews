@@ -32,15 +32,15 @@ class TreeNode:
     self.right = None
 
 
-def maxValueInEachLevel(head: Optional[TreeNode]) -> List[int]:
+def maxValueInEachLevel(root: Optional[TreeNode]) -> List[int]:
   # Time: O(n)
   # Space: O(n)
-  if not head: return []
+  if not root: return []
 
   output: List[int] = []
 
   currLevel: Deque[TreeNode] = deque()
-  currLevel.append(head)
+  currLevel.append(root)
 
   while len(currLevel) != 0:
     nextLevel: Deque[TreeNode] = deque()
