@@ -26,6 +26,7 @@ return [7, 4, 1, 9]
 from typing import Deque, Optional, List
 from collections import deque
 
+
 class TreeNode:
   def __init__(self, v) -> None:
     self.data = v
