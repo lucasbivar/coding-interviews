@@ -23,7 +23,6 @@ Ex: Given the following tree…
 return [7, 4, 1, 9]
 """
 
-from calendar import c
 from typing import Deque, Optional, List
 from collections import deque
 
