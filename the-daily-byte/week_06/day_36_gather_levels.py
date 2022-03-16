@@ -40,14 +40,14 @@ class TreeNode:
     self.right = None
 
 
-def gatherLevels(head: Optional[TreeNode]) -> List[List[int]]:
+def gatherLevels(root: Optional[TreeNode]) -> List[List[int]]:
   # Time: O(n)
   # Space: O(n)
-  if not head: return []
+  if not root: return []
 
   output = []
   currLevel = deque()
-  currLevel.append(head)
+  currLevel.append(root)
 
   while len(currLevel) != 0:
     nodesValues = []
