@@ -36,6 +36,8 @@ class TreeNode:
 def zigzag(root: Optional[TreeNode]) -> List[List[int]]:
   # Time: O(n)
   # Space: O(n)
+  if not root: return []
+
   startFromLeft = True
 
   output = []
